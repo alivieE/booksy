@@ -1,0 +1,160 @@
+.header {
+  position: relative;
+}
+
+.overflow {
+  overflow: hidden;
+}
+
+.desktopMenu {
+  display: none;
+}
+
+.hamburger-menu {
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+/* .menuItems {
+} */
+
+.menu-items li {
+  margin-bottom: 10px;
+}
+
+.menu-items a {
+  text-decoration: none;
+  color: #333;
+}
+
+.menuAndClose {
+  background: transparent;
+  border: none;
+}
+
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+}
+.burgerMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #FCEEE6;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+
+  /* Анімація */
+  animation: slideIn 0.4s ease forwards;
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.burgerMenu.open {
+  transform: translateX(0);
+}
+
+.wrapBurger {
+  padding: 14px 8px;
+  margin: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menuItems {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  margin: 32px 0;
+}
+
+.links {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.links:hover {
+  text-decoration: underline;
+}
+
+.logo{
+  display: flex;
+  gap: 5px;
+}
+
+.logoOpenMenu{
+  display: flex;
+  gap: 5px;
+}
+
+.logoName{
+  font-weight: 700;
+  font-size: 18px;
+}
+
+@media (min-width: 768px) {
+  .logoOpenMenu {
+    display: none;
+  }
+  .desktopMenu {
+    display: none;
+  }
+  .burgerMenu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 470px;
+    background: #FCEEE6;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    padding-top: 70px;
+    /* Анімація */
+    animation: slideIn 0.4s ease forwards;
+  }
+  .menuAndClose {
+    background: transparent;
+    border: none;
+    position: absolute;
+    top: 28px;
+    right: 24px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .burgerMenu {
+    display: none;
+  }
+  .menuAndClose {
+    display: none;
+  }
+  .desktopMenu {
+    display: flex;
+    align-items: center;
+    padding: 0;
+  }
+  .menuItems {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 32px 0;
+  }
+}

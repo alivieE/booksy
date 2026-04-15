@@ -1,0 +1,107 @@
+.title {
+  font-weight: 700;
+  font-size: 36px;
+  padding: 48px 0 32px 0;
+}
+.name {
+  font-weight: 700;
+  font-size: 18px;
+  padding-top: 16px;
+}
+.colorContainer {
+  display: flex;
+  gap: 8px;
+}
+.colorDot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  flex-shrink: 0;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.price {
+  font-weight: 600;
+  font-size: 20px;
+} /* ── Слайдер ── */
+.sliderOuter {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.viewport {
+  overflow: hidden;
+  width: 343px;
+}
+.track {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+} /* Mobile: 1 товар, 335px */
+.slide {
+  flex: 0 0 343px;
+}
+.image {
+  width: 343px;
+  height: 199px;
+  object-fit: cover;
+  border-radius: 16px;
+} /* ── Навігація ── */
+.navBtn {
+  position: absolute;
+  top: 110%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  background: #e15d05;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: background 0.2s;
+} /* .hero{ display: flex; } */
+.prev {
+  left: -22px;
+}
+.next {
+  right: -16px;
+} /* ── Пагінація ── */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 32px;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: #d3d3d3;
+  cursor: pointer;
+  padding: 0;
+  transition:
+    background 0.2s,
+    width 0.2s;
+}
+.dot.active {
+  background: #111;
+  width: 24px;
+  border-radius: 4px;
+}
+.heroText {
+  padding-top: 96px;
+  font-weight: 600;
+  font-size: 40px;
+}
