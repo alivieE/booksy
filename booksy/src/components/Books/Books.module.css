@@ -1,0 +1,20 @@
+.books {
+  width: 100%;
+}
+
+.titleWrap {
+  display: flex;
+  padding: 24px 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.booksCount {
+  font-weight: 400;
+  font-size: 14px;
+}
