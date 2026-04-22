@@ -95,7 +95,7 @@ html {
 }
 .body {
   font-family: "IBM Plex Sans", sans-serif;
-  background-color: #FCEEE6;
+  background-color: #fceee6;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -119,7 +119,7 @@ section {
 }
 body {
   font-family: "Raleway", sans-serif;
-  background-color: #FCEEE6;
+  background-color: #fceee6;
 }
 menu,
 ol,
@@ -178,15 +178,14 @@ textarea {
   position: relative;
 }
 
-
 .container {
   width: 100%;
   max-width: 343px;
   margin: 0 auto;
-  padding: 0 24px;
+  /* padding: 0 24px; */
 }
 
-.swiper-slide.swiper-slide.swiper-slide.swiper-slide{
+.swiper-slide.swiper-slide.swiper-slide.swiper-slide {
   width: 343px;
 }
 
@@ -203,3 +202,17 @@ textarea {
   }
 }
 
+.viewport {
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.35s ease;
+}
+
+.slide {
+  flex: 0 0 calc((100% - 24px * (var(--per-view) - 1)) / var(--per-view));
+  box-sizing: border-box;
+}

@@ -48,7 +48,7 @@
   right: 0;
   width: 100vw;
   height: 100vh;
-  background: #FCEEE6;
+  background: #fceee6;
   display: flex;
   flex-direction: column;
   z-index: 100;
@@ -94,17 +94,17 @@
   text-decoration: underline;
 }
 
-.logo{
+.logo {
   display: flex;
   gap: 5px;
 }
 
-.logoOpenMenu{
+.logoOpenMenu {
   display: flex;
   gap: 5px;
 }
 
-.logoName{
+.logoName {
   font-weight: 700;
   font-size: 18px;
 }
@@ -122,7 +122,7 @@
     right: 0;
     width: 250px;
     height: 470px;
-    background: #FCEEE6;
+    background: #fceee6;
     display: flex;
     flex-direction: column;
     z-index: 100;
@@ -133,9 +133,6 @@
   .menuAndClose {
     background: transparent;
     border: none;
-    position: absolute;
-    top: 28px;
-    right: 24px;
   }
 }
 
