@@ -11,9 +11,9 @@ const Books = () => {
   useEffect(() => {
     fetch("https://books-backend.p.goit.global/books/top-books")
       .then((res) => res.json())
-      .then((data) => {
-        setBooksList(data.books);
-        console.log(data);
+      .then((dataBooks) => {
+        setBooksList(dataBooks);
+        console.log(dataBooks);
       });
   }, []);
 
