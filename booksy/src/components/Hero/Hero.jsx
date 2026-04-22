@@ -16,10 +16,26 @@ const Hero = () => {
   const trackRef = useRef(null);
 
   const slides = [
-    images.slideOne,
-    images.slideTwo,
-    images.slideThree,
-    images.slideFour,
+    {
+      image: images.slideOne,
+      title: <h2 className={s.heading}>Get 10% off your <br></br> first order</h2>,
+      buttonText: "Shop Now!",
+    },
+    {
+      image: images.slideTwo,
+      title: <h2 className={s.heading}>Save 15% on <br></br> some books</h2>,
+      buttonText: "Shop Now!",
+    },
+    {
+      image: images.slideThree,
+      title: <h2 className={s.heading}>Summer Sale! <br></br> Up to -40% discounts</h2>,
+      buttonText: "Shop Now!",
+    },
+    {
+      image: images.slideFour,
+      title: <h2 className={s.heading}>Last chance to buy our <br></br> spring bestsellers</h2>,
+      buttonText: "Shop Now!",
+    },
   ];
 
   const maxIndex = Math.max(0, slides.length - perView);
@@ -73,10 +89,16 @@ const Hero = () => {
             ref={trackRef}
             style={{ "--per-view": perView }}
           >
-            {slides.map((img, i) => (
+            {slides.map((slide, i) => (
               <li className={s.slide} key={i}>
                 <div className={s.card}>
-                  <img src={img} className={s.image} alt="" />
+                  <img src={slide.image} className={s.image} alt="" />
+                  <div className={s.content}>
+                    {slide.title}
+                    <button type="button" className={s.shopBtn}>
+                      {slide.buttonText}
+                    </button>
+                  </div>
                 </div>
               </li>
             ))}
