@@ -25,8 +25,9 @@ const Books = () => {
   return (
     <div>
       <ul>
-        {categoryList > 0 &&
+        {categoryList.length > 0 &&
           categoryList.map((categories) => {
+            console.log(categories);
             return <li key={categories.list_name}>{categories.list_name}</li>;
           })}
       </ul>
