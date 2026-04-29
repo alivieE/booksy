@@ -3,23 +3,22 @@ import s from "./CategorySelect.module.css";
 
 const ALL_CATEGORIES_LABEL = "All Categories";
 
-const VALUES = {
-  "All Categories" : "All Categories",
-  "Paperback Nonfiction": "Paperback%20Nonfiction",
-  "Trade Fiction Paperback": "Trade%20Fiction%20Paperback",
-  "Series Books": "Series%20Books",
-  "Picture Books": "Picture%20Books",
-  "Hardcover Fiction": "Hardcover%20Fiction",
-  "Hardcover Nonfiction": "Hardcover%20Nonfiction",
-  "Paperback Nonfiction": "Paperback%20Nonfiction",
-  "Childrens Middle Grade Hardcover": "Childrens%20Middle%20Grade%20Hardcover",
-  "Young Adult Hardcover": "Young%20Adult%20Hardcover",
-  "Combined Print and E-Book Nonfiction":
-    "Combined%20Print%20and%20E-Book%20Nonfiction",
-  "Combined Print and E-Book Fiction":
-    "Combined%20Print%20and%20E-Book%20Fiction",
-};
-console.log(VALUES["Paperback Nonfiction"]);
+// const VALUES = {
+//   "All Categories": "All Categories",
+//   "Paperback Nonfiction": "Paperback%20Nonfiction",
+//   "Trade Fiction Paperback": "Trade%20Fiction%20Paperback",
+//   "Series Books": "Series%20Books",
+//   "Picture Books": "Picture%20Books",
+//   "Hardcover Fiction": "Hardcover%20Fiction",
+//   "Hardcover Nonfiction": "Hardcover%20Nonfiction",
+//   "Paperback Nonfiction": "Paperback%20Nonfiction",
+//   "Childrens Middle Grade Hardcover": "Childrens%20Middle%20Grade%20Hardcover",
+//   "Young Adult Hardcover": "Young%20Adult%20Hardcover",
+//   "Combined Print and E-Book Nonfiction":
+//     "Combined%20Print%20and%20E-Book%20Nonfiction",
+//   "Combined Print and E-Book Fiction":
+//     "Combined%20Print%20and%20E-Book%20Fiction",
+// };
 
 const CategorySelect = ({
   categoryList = [],
@@ -83,7 +82,7 @@ const CategorySelect = ({
             className={`${s.option} ${value === "" ? s.selected : ""}`}
             role="option"
             aria-selected={value === ""}
-            onClick={() => handleSelect("")}
+            onClick={() => handleSelect("All Categories")}
           >
             {ALL_CATEGORIES_LABEL}
           </li>
@@ -91,12 +90,17 @@ const CategorySelect = ({
           {categoryList
             .filter(
               (category) =>
-                category.list_name && category.list_name.trim() !== "",
+                category.list_name && category.list_name.trim() !== ""
             )
             .map((category) => {
               const isSelected = category.list_name === value;
 
-              if (category.list_name == "Advice, How-To & Miscellaneous" || category.list_name == "Combined Print & E-Book Fiction" || category.list_name == "Combined Print & E-Book Nonfiction" || category.list_name == "Children's & Young Adult Series")
+              if (
+                category.list_name == "Advice, How-To & Miscellaneous" ||
+                category.list_name == "Combined Print & E-Book Fiction" ||
+                category.list_name == "Combined Print & E-Book Nonfiction" ||
+                category.list_name == "Children's & Young Adult Series"
+              )
                 return;
 
               return (
