@@ -5,17 +5,16 @@ import CategorySelect from "./Select/CategorySelect";
 const Books = () => {
   const [booksList, setBooksList] = useState([]);
   const [categoryList, setCategoryList] = useState([]);
-  const [booksByCategory, setBooksByCategory] = useState([]);
   const [selectValue, setSelectValue] = useState("All Categories");
 
-  useEffect(() => {
-    fetch("https://books-backend.p.goit.global/books/top-books")
-      .then((res) => res.json())
-      .then((dataBooks) => {
-        setBooksList(dataBooks);
-        console.log(dataBooks);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("https://books-backend.p.goit.global/books/top-books")
+  //     .then((res) => res.json())
+  //     .then((dataBooks) => {
+  //       setBooksList(dataBooks[0]?.books);
+  //       // console.log(dataBooks);
+  //     });
+  // }, []);
 
   useEffect(() => {
     fetch("https://books-backend.p.goit.global/books/category-list")
@@ -25,17 +24,25 @@ const Books = () => {
         console.log(categoriesData);
       });
   }, []);
+  console.log(booksList);
 
   useEffect(() => {
+    if (selectValue == "All Categories") { 
+      fetch("https://books-backend.p.goit.global/books/top-books")
+      .then((res) => res.json())
+      .then((dataBooks) => {
+        setBooksList(dataBooks[0]?.books);
+      });
+    return
+    }
     fetch(
-      "https://books-backend.p.goit.global/books/category?category=${selectValue}",
+      `https://books-backend.p.goit.global/books/category?category=${selectValue}`,
     )
       .then((res) => res.json())
-      .then((booksByCategoryData) => {
-        setBooksByCategory(booksByCategoryData);
-        console.log(booksByCategoryData);
+      .then((dataBooks) => {
+        setBooksList(dataBooks);
       });
-  }, []);
+  }, [selectValue]);
 
   return (
     <div className="container">
@@ -50,18 +57,20 @@ const Books = () => {
           onChange={setSelectValue}
         ></CategorySelect>
         <ul className={s.booksList}>
-          {booksByCategory.map((book) => (
-            <li key={book._id} className={s.bookItem}>
-              <img
-                src={book.book_image}
-                alt={book.title}
-                className={s.bookImage}
-              />
-              <p className={s.bookTitle}>{book.title}</p>
-              <p className={s.bookAuthor}>{book.author}</p>
-              <p className={s.bookPrice}>${book.price}</p>
-            </li>
-          ))}
+          {booksList.length > 0 &&
+            booksList.map((books) => (
+              <li key={books._id} className={s.bookItem}>
+                <img className={s.image} src={books.book_image} />
+                <div className={s.descWrap}>
+                  <div className={s.desc}>
+                    <p className={s.bookTitle}>{books.title}</p>
+                    <p className={s.author}>{books.author}</p>
+                  </div>
+                  <p className={s.price}>${books.price}</p>
+                </div>
+                <button className={s.btnLearnMore}>Learn More</button>
+              </li>
+            ))}
         </ul>
       </div>
     </div>

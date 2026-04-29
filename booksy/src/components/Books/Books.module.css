@@ -18,3 +18,48 @@
   font-weight: 400;
   font-size: 14px;
 }
+
+.booksList {
+  padding: 24px 0;  
+}
+
+.bookItem{
+  padding: 20px 0;
+}
+
+.bookTitle {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.descWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+.author {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.price {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.image{
+  max-width: 343px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.btnLearnMore{
+font-weight: 400;
+font-size: 16px;
+border: 1px solid black;
+padding: 8px 0;
+width: 100%;
+border-radius: 4px;
+background: none;
+}
